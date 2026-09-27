@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}SmartCampus{% endblock %}
+
+{% block content %}
+
+<section class="hero p-4 p-lg-5">
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+            <span class="eyebrow">CAMPUS COMMUNITY · AI-ASSISTED</span>
+
+            <h1 class="display-4 fw-bold mt-3">
+                Lost something?
+                <span>Found something?</span>
+                <br>
+                Let's reconnect it.
+            </h1>
+
+            <p class="lead text-muted mt-3">
+                A secure campus Lost & Found platform that uses ML to surface
+                potential matches while keeping ownership verification private.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-primary-soft btn-lg"
+                   href="{{ url_for('login') }}">
+                    Report Lost Item
+                </a>
+
+                <a class="btn btn-teal btn-lg"
+                   href="{{ url_for('login') }}">
+                    Report Found Item
+                </a>
+
+                <a class="btn btn-outline-secondary btn-lg"
+                   href="{{ url_for('login') }}">
+                    Search Lost & Found
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="hero-card">
+                <div class="mini-icon">✦</div>
+
+                <h4>Match · Verify · Return</h4>
+
+                <p class="text-muted">
+                    TF-IDF similarity finds candidates.
+                    Administrators make the final ownership decision.
+                </p>
+
+                <div class="flow">
+                    <span>Report</span>
+                    →
+                    <span>Match</span>
+                    →
+                    <span>Verify</span>
+                    →
+                    <span>Return</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="row g-4 mt-3">
+
+    {% for x in [
+        ('Private by design',
+         'Unique identifying details stay hidden from public listings.'),
+        ('AI-assisted matching',
+         'TF-IDF and cosine similarity surface useful potential matches.'),
+        ('Human verification',
+         'Claims are reviewed before an item is returned.')
+    ] %}
+
+    <div class="col-md-4">
+        <div class="card soft-card h-100 p-4">
+
+            <div class="mini-icon">✦</div>
+
+            <h5 class="mt-3">
+                {{ x[0] }}
+            </h5>
+
+            <p class="text-muted">
+                {{ x[1] }}
+            </p>
+
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

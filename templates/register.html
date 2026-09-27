@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+    <div class="auth-container">
+
+        <div class="card soft-card p-4 p-md-5">
+
+            <div class="text-center mb-4">
+                <span class="eyebrow">CAMPUS ACCESS</span>
+
+                <h2 class="fw-bold mt-2">
+                    Create Account
+                </h2>
+
+                <p class="text-muted">
+                    Create your SmartCampus student account
+                </p>
+            </div>
+
+            <form method="post">
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="{{ csrf_token() }}"
+                >
+
+                <div class="row g-3">
+
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- College Email -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            College Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your college email"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Register Number -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Register Number
+                        </label>
+
+                        <input
+                            type="text"
+                            name="register_number"
+                            class="form-control"
+                            placeholder="Enter your register number"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Department -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Department
+                        </label>
+
+                        <input
+                            type="text"
+                            name="department"
+                            class="form-control"
+                            placeholder="e.g. CSE - AI & ML"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Create a password"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            class="form-control"
+                            placeholder="Re-enter your password"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Year -->
+                    <div class="col-12">
+                        <label class="form-label">
+                            Year
+                        </label>
+
+                        <select
+                            name="year"
+                            class="form-select"
+                            required
+                        >
+                            <option value="">
+                                Choose your year
+                            </option>
+
+                            <option value="1">
+                                1st Year
+                            </option>
+
+                            <option value="2">
+                                2nd Year
+                            </option>
+
+                            <option value="3">
+                                3rd Year
+                            </option>
+
+                            <option value="4">
+                                4th Year
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <!-- Create Account Button -->
+                <div class="d-grid mt-4">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary-soft btn-lg w-100"
+                    >
+                        Create Account
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- Login Link -->
+            <div class="text-center mt-4">
+
+                <p class="text-muted mb-0">
+                    Already have an account?
+                    <a href="{{ url_for('login') }}">
+                        Login here
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
