@@ -159,7 +159,7 @@ def admin_report_action(rid,action):
 def admin_matches(): return render_template('admin/matches.html',matches=Match.query.order_by(Match.overall_score.desc()).all())
 @app.route('/admin/claims')
 @admin_required
-def admin_claims(): return render_template('admin/claims.html',claims=Claim.query.order_by(Claim.created_at.desc()).all())
+def admin_claims(): return render_template('admin/claims.html',claims=Claim.query.order_by(Claim.id.desc()).all())
 @app.route('/admin/claims/<int:cid>/<action>',methods=['POST'])
 @admin_required
 def admin_claim_action(cid,action):
